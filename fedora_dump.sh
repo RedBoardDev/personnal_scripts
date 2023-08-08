@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 clear
 echo "INSTALLING PACKAGES FOR EPITECH'S DUMP"
