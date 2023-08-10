@@ -1,0 +1,16 @@
+[Unit]
+Description=Update and clean system on startup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+User=root
+Group=root
+TimeoutStartSec=0
+Restart=on-failure
+RestartSec=30s
+ExecStart=/usr/bin/update_and_clean.sh
+
+[Install]
+WantedBy=multi-user.target
