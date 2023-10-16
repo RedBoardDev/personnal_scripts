@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Liste des commandes à sécuriser
-commands=("setxkbmap" "crontab" "yes" "xset" "wget" "curl" "dd" "iptables" "ufw" "docker")
+commands=("setxkbmap" "crontab" "yes" "xset" "wget" "curl" "dd" "iptables" "ufw")
 
 # Boucle sur chaque commande
 for cmd in "${commands[@]}"; do
