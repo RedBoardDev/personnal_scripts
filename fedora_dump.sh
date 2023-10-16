@@ -1,7 +1,22 @@
 #!/bin/bash
 
+function asking_action() {
+    local message="$1"
+    local action="$2"
+
+    read -p "$message (Y/N): " choice
+    choice="${choice:-Y}"
+
+    if [[ $choice == [Yy] ]]; then
+        echo "You choose yes."
+        eval "$action"
+    else
+        echo "You choose no."
+    fi
+}
+
 clear
-echo "INSTALLING PACKAGES FOR EPITECH'S DUMP"
+echo "INSTALLING USEFULL PACKAGES FOR NEW DUMP"
 if [[ $EUID -ne 0 ]]; then
     echo "This script must be run as root" 1>&2
     exit 1
@@ -9,9 +24,22 @@ fi
 
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumrepos/ms-teams\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/teams.repo'
-dnf -y install dnf-plugins-core && dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf -y install dnf-plugins-core
+dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 dnf upgrade -y
+
+# remove docker
+dnf remove -y docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
 
 packages_list=(boost-devel.x86_64
     boost-static.x86_64
@@ -110,17 +138,39 @@ packages_list=(boost-devel.x86_64
     x264.x86_64
     lightspark.x86_64
     lightspark-mozilla-plugin.x86_64
-    teams.x86_64)
+    teams.x86_64
+    docker-ce
+    docker-ce-cli
+    containerd.io
+    docker-buildx-plugin
+    docker-compose-plugin
+    fedora-workstation-repositories
+    htop
+    gh
+    gource)
+
+asking_action "Do you want to install discord?" "packages_list+=(discord)"
 
 dnf -y install ${packages_list[@]}
 
+# google chrome
+
+asking_action "Do you want to install google-chrome?" "dnf config-manager --set-enabled google-chrome && dnf install google-chrome-stable"
+
+# config and start docker
+systemctl enable docker
+systemctl start docker
+usermod -aG docker $USER
+systemctl daemon-reload
+systemctl restart docker
+
 # Criterion
-curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.0/criterion-2.4.0-linux-x86_64.tar.xz" -o criterion-2.4.0.tar.xz
-tar xf criterion-2.4.0.tar.xz
-cp -r criterion-2.4.0/* /usr/local/
+curl -sSL "https://github.com/Snaipe/Criterion/releases/download/v2.4.2/criterion-2.4.2-linux-x86_64.tar.xz" -o criterion-2.4.2.tar.xz
+tar xf criterion-2.4.2.tar.xz
+cp -r criterion-2.4.2/* /usr/local/
 echo "/usr/local/lib" >/etc/ld.so.conf.d/usr-local.conf
 ldconfig
-rm -rf criterion-2.4.0.tar.xz criterion-2.4.0/
+rm -rf criterion-2.4.2.tar.xz criterion-2.4.2/
 
 # Sbt
 curl -sSL "https://github.com/sbt/sbt/releases/download/v1.3.13/sbt-1.3.13.tgz" | tar xz
@@ -134,3 +184,23 @@ echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >>/etc/profile
 
 # Stack
 curl -sSL https://get.haskellstack.org/ | sh
+
+# snap
+dnf install snapd
+ln -s /var/lib/snapd/snap /snap
+sleep 5
+
+# youtube music
+asking_action "Do you want to install youtube-music?" "snap install youtube-music-desktop-app"
+
+# spotify
+asking_action "Do you want to install spotify?" "snap install spotify"
+
+# postman
+asking_action "Do you want to install postman?" "snap install postman"
+
+dnf upgrade -y
+
+asking_action "Do you want to install sshs?" "cd /tmp && git clone https://github.com/quantumsheep/sshs.git sshs && cd sshs && make && make install"
+
+asking_action "Do you want to reboot now?" "reboot"
