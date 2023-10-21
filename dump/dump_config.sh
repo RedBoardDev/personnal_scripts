@@ -91,3 +91,28 @@ cp "$DIRECTORY_PATH/$FILE_SSHS_CONFIG" $HOME/.ssh/
 # rm -rf $HOME/delivery/clone_all_repository_github.sh
 
 # install les services après les avoir tests et voir pour update_discord
+
+dconf load / < gnome-settings.txt
+
+# add cusotm shortcut: gnome-terminal
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal Shortcut'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'gnome-terminal'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Primary><Alt>t'
+
+# add cusotm shortcut: switch between windows
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Alt>Tab']"
+
+# dark mode
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+# disable hot corners
+gsettings set org.gnome.desktop.interface enable-hot-corners false
+
+# disable workspace switcher
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+# show battery percentage
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+

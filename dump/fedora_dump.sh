@@ -147,7 +147,9 @@ packages_list=(boost-devel.x86_64
     fedora-workstation-repositories
     htop
     gh
-    gource)
+    gource
+    gnome-tweaks
+    gnome-extensions-app)
 
 asking_action "Do you want to install discord?" "dnf -y install discord"
 

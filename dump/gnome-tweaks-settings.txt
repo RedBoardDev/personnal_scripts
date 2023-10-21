@@ -1,0 +1,222 @@
+[control-center]
+last-panel='wifi'
+window-state=(980, 640, true)
+
+[desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/redboard/.local/share/backgrounds/2023-10-15-09-51-36-metatecht_dark_foggy_musty_abandoned_underground_metro_station__28336bb6-5bfd-432f-9e5b-94f2d29adebb_1.jpeg'
+picture-uri-dark='file:///home/redboard/.local/share/backgrounds/2023-10-15-09-51-36-metatecht_dark_foggy_musty_abandoned_underground_metro_station__28336bb6-5bfd-432f-9e5b-94f2d29adebb_1.jpeg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[desktop/input-sources]
+current=uint32 0
+sources=[('xkb', 'fr')]
+xkb-options=['terminate:ctrl_alt_bksp']
+
+[desktop/interface]
+color-scheme='prefer-dark'
+enable-hot-corners=false
+font-antialiasing='grayscale'
+font-hinting='slight'
+show-battery-percentage=true
+
+[desktop/notifications]
+application-children=['org-gnome-software', 'org-gnome-terminal', 'discord', 'gnome-power-panel', 'google-chrome', 'gnome-network-panel', 'org-gnome-nautilus', 'org-freedesktop-problems-applet', 'spotify-spotify', 'org-gnome-rhythmbox3', 'io-snapcraft-sessionagent']
+show-banners=true
+
+[desktop/notifications/application/discord]
+application-id='discord.desktop'
+
+[desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
+[desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[desktop/notifications/application/google-chrome]
+application-id='google-chrome.desktop'
+
+[desktop/notifications/application/io-snapcraft-sessionagent]
+application-id='io.snapcraft.SessionAgent.desktop'
+
+[desktop/notifications/application/org-freedesktop-problems-applet]
+application-id='org.freedesktop.problems.applet.desktop'
+
+[desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[desktop/notifications/application/org-gnome-rhythmbox3]
+application-id='org.gnome.Rhythmbox3.desktop'
+
+[desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
+
+[desktop/notifications/application/spotify-spotify]
+application-id='spotify_spotify.desktop'
+
+[desktop/peripherals/touchpad]
+click-method='areas'
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[desktop/privacy]
+report-technical-problems=true
+
+[desktop/screensaver]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/redboard/.local/share/backgrounds/2023-10-15-09-51-36-metatecht_dark_foggy_musty_abandoned_underground_metro_station__28336bb6-5bfd-432f-9e5b-94f2d29adebb_1.jpeg'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[desktop/sound]
+event-sounds=true
+theme-name='__custom'
+
+[desktop/wm/keybindings]
+switch-applications=@as []
+switch-applications-backward=@as []
+switch-windows=['<Alt>Tab']
+switch-windows-backward=['<Shift><Alt>Tab']
+
+[desktop/wm/preferences]
+auto-raise=false
+button-layout='appmenu:minimize,maximize,close'
+focus-mode='click'
+
+[evolution-data-server]
+migrated=true
+
+[login-screen]
+enable-fingerprint-authentication=true
+enable-password-authentication=true
+enable-smartcard-authentication=false
+
+[nautilus/preferences]
+default-folder-viewer='icon-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+search-view='list-view'
+
+[nautilus/window-state]
+initial-size=(890, 550)
+maximized=true
+
+[nm-applet/eap/151c35e9-40e2-4587-829e-836efc0b1e47]
+ignore-ca-cert=true
+ignore-phase2-ca-cert=false
+
+[nm-applet/eap/66800fe3-3c22-423f-9b01-54c14b9f00a8]
+ignore-ca-cert=true
+ignore-phase2-ca-cert=false
+
+[nm-applet/eap/98fe96be-8b55-414a-bc8d-9e57ca84fb06]
+ignore-ca-cert=true
+ignore-phase2-ca-cert=false
+
+[rhythmbox]
+position=(26, 23)
+
+[rhythmbox/player]
+volume=0.9999847412109375
+
+[rhythmbox/plugins]
+active-plugins=['rb', 'power-manager', 'notification', 'mtpdevice', 'mpris', 'iradio', 'ipod', 'generic-player', 'dbus-media-server', 'cd-recorder', 'audioscrobbler', 'audiocd', 'android', 'artsearch']
+seen-plugins=['rb', 'webremote', 'replaygain', 'rbzeitgeist', 'pythonconsole', 'notification', 'mtpdevice', 'ipod', 'grilo', 'fmradio', 'dbus-media-server', 'daap', 'cd-recorder', 'audioscrobbler', 'artsearch', 'im-status', 'listenbrainz', 'lyrics', 'magnatune']
+
+[rhythmbox/plugins/audioscrobbler/Last.fm]
+scrobbling-enabled=true
+
+[rhythmbox/plugins/audioscrobbler/Libre.fm]
+scrobbling-enabled=true
+
+[rhythmbox/plugins/iradio]
+initial-stations-loaded=true
+
+[rhythmbox/rhythmdb]
+locations=['file:///home/redboard/Music']
+
+[settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Control><Alt>t'
+command='gnome-terminal'
+name='gnome-terminal'
+
+[settings-daemon/plugins/power]
+power-button-action='nothing'
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='nothing'
+
+[shell]
+enabled-extensions=['background-logo@fedorahosted.org', 'dash-to-panel@jderose9.github.com', 'ding@rastersoft.com', 'smartlock@huy.im', 'blur-my-shell@aunetx']
+favorite-apps=['google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'discord.desktop', 'org.gnome.Terminal.desktop', 'spotify_spotify.desktop']
+last-selected-power-profile='power-saver'
+welcome-dialog-last-shown-version='43.0'
+
+[shell/app-switcher]
+current-workspace-only=true
+
+[shell/extensions/bluetooth_smartlock]
+indicator=false
+interval=10
+mac='18:4E:16:8F:E3:B9'
+
+[shell/extensions/dash-to-panel]
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+appicon-margin=8
+appicon-padding=4
+available-monitors=[0]
+dot-position='BOTTOM'
+hotkeys-overlay-combo='TEMPORARILY'
+intellihide=true
+isolate-workspaces=true
+leftbox-padding=-1
+panel-anchors='{"0":"MIDDLE"}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-lengths='{"0":100}'
+panel-sizes='{"0":48}'
+primary-monitor=0
+status-icon-padding=-1
+tray-padding=-1
+window-preview-title-position='TOP'
+
+[shell/extensions/ding]
+check-x11wayland=true
+
+[shell/world-clocks]
+locations=@av []
+
+[software]
+check-timestamp=int64 1697889990
+first-run=false
+install-timestamp=int64 1696847704
+online-updates-timestamp=int64 1697890005
+update-notification-timestamp=int64 1696847746
+upgrade-notification-timestamp=int64 1697476871
+
+[system/location]
+enabled=false
+
+[tweaks]
+show-extensions-notice=false
