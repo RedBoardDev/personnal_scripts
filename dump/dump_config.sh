@@ -3,11 +3,11 @@
 DIRECTORY_PATH=""
 
 FILE_ZSHRC=".zshrc"
-FILE_PRIVATE_KEY="id_ed25519"
-FILE_PUBLIC_KEY="id_ed25519.pub"
+# FILE_PRIVATE_KEY="id_ed25519"
+# FILE_PUBLIC_KEY="id_ed25519.pub"
 FILE_SSHS_CONFIG="config"
 
-KEY_FILES=("$PRIVATE_KEY_FILE" "$PUBLIC_KEY_FILE" "$FILE_ZSHRC" "$FILE_SSHS_CONFIG")
+KEY_FILES=("$FILE_ZSHRC" "$FILE_SSHS_CONFIG")
 
 clear
 if [[ $EUID -ne 0 ]]; then
@@ -16,7 +16,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 while true; do
-    read -p "Enter the path of the repertory with those files: $PRIVATE_KEY_FILE, $PUBLIC_KEY_FILE, $FILE_ZSHRC, $FILE_SSHS_CONFIG" DIRECTORY_PATH
+    read -p "Enter the path of the repertory with those files: $FILE_ZSHRC, $FILE_SSHS_CONFIG" DIRECTORY_PATH
     if [ ! -d "$DIRECTORY_PATH" ]; then
         echo "The specified path is not available. Please, be sure that the repertory exist."
         continue
@@ -71,23 +71,23 @@ chmod +x $HOME/.scripts/run_epitest_docker.sh
 # setup ssh
 mkdir -p $HOME/.ssh
 
-cp "$DIRECTORY_PATH/$FILE_PRIVATE_KEY" $HOME/.ssh/
-cp "$DIRECTORY_PATH/$FILE_PUBLIC_KEY" $HOME/.ssh/
-chmod 600 $HOME/.ssh/$FILE_PRIVATE_KEY
-chmod 644 $HOME/.ssh/$FILE_PUBLIC_KEY
+# cp "$DIRECTORY_PATH/$FILE_PRIVATE_KEY" $HOME/.ssh/
+# cp "$DIRECTORY_PATH/$FILE_PUBLIC_KEY" $HOME/.ssh/
+# chmod 600 $HOME/.ssh/$FILE_PRIVATE_KEY
+# chmod 644 $HOME/.ssh/$FILE_PUBLIC_KEY
 
 cp "$DIRECTORY_PATH/$FILE_SSHS_CONFIG" $HOME/.ssh/
 
 
 # clone epitech repository
-if ! which ghs >/dev/null 2>&1; then
-    dnf -y install gh
-fi
-eval "gh auth login"
-curl -o $HOME/delivery/clone_all_repository_github.sh https://raw.githubusercontent.com/RedBoardDev/personnal_scripts/main/clone_all_repository_github.sh
-chmod +x $HOME/delivery/clone_all_repository_github.sh
-cd $HOME/delivery
-eval "$HOME/delivery/clone_all_repository_github.sh -o EpitechPromo2026"
-rm -rf $HOME/delivery/clone_all_repository_github.sh
+# if ! which ghs >/dev/null 2>&1; then
+#     dnf -y install gh
+# fi
+# eval "gh auth login"
+# curl -o $HOME/delivery/clone_all_repository_github.sh https://raw.githubusercontent.com/RedBoardDev/personnal_scripts/main/clone_all_repository_github.sh
+# chmod +x $HOME/delivery/clone_all_repository_github.sh
+# cd $HOME/delivery
+# eval "$HOME/delivery/clone_all_repository_github.sh -o EpitechPromo2026"
+# rm -rf $HOME/delivery/clone_all_repository_github.sh
 
 # install les services après les avoir tests et voir pour update_discord
