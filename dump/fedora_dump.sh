@@ -27,10 +27,10 @@ sh -c 'echo -e "[teams]\nname=teams\nbaseurl=https://packages.microsoft.com/yumr
 dnf -y install dnf-plugins-core
 dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-dnf upgrade -y
+dnf -y upgrade
 
 # remove docker
-dnf remove -y docker \
+dnf -y remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
@@ -149,13 +149,13 @@ packages_list=(boost-devel.x86_64
     gh
     gource)
 
-asking_action "Do you want to install discord?" "packages_list+=(discord)"
+asking_action "Do you want to install discord?" "dnf -y install discord"
 
 dnf -y install ${packages_list[@]}
 
 # google chrome
 
-asking_action "Do you want to install google-chrome?" "dnf config-manager --set-enabled google-chrome && dnf install google-chrome-stable"
+asking_action "Do you want to install google-chrome?" "dnf config-manager --set-enabled google-chrome && dnf -y install google-chrome-stable"
 
 # config and start docker
 systemctl enable docker
@@ -186,7 +186,7 @@ echo 'export PATH=$PATH:/opt/gradle/gradle-7.2/bin' >>/etc/profile
 curl -sSL https://get.haskellstack.org/ | sh
 
 # snap
-dnf install snapd
+dnf -y install snapd
 ln -s /var/lib/snapd/snap /snap
 sleep 5
 
@@ -199,7 +199,7 @@ asking_action "Do you want to install spotify?" "snap install spotify"
 # postman
 asking_action "Do you want to install postman?" "snap install postman"
 
-dnf upgrade -y
+dnf -y upgrade
 
 asking_action "Do you want to install sshs?" "cd /tmp && git clone https://github.com/quantumsheep/sshs.git sshs && cd sshs && make && make install"
 

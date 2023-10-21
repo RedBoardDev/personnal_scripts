@@ -1,0 +1,9 @@
+Host "RPI4 Redboard"
+  HostName rpi.thomasott.fr
+  User redboard
+  Port 1599
+
+Host "RPI4 HUB"
+  HostName rpi.thomasott.fr
+  User hub
+  Port 1599
