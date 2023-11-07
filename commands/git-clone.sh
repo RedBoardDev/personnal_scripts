@@ -5,11 +5,9 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-PATH_REPO_1=${1#*-}
-PATH_REPO_2=${PATH_REPO_1%.*}
-PATH_REPO_3=${PATH_REPO_2%-*}
-ORGA_NAME=${1%/*}
-PROJET_NAME=${PATH_REPO_3##*-}
+URL=$1
+PROJET_NAME=$(echo $URL | awk -F'/' '{split($NF, a, "-"); split(a[7], b, "."); print b[1]}')
+
 
 if [ -z "$PROJET_NAME" ]; then
     echo "Error: unable to determine project name, simple clone active."
