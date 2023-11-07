@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker kill $(docker ps -q)
+docker ps -q | xargs -r docker kill
 docker container prune -f
