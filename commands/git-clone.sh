@@ -6,12 +6,19 @@ if [ -z "$1" ]; then
 fi
 
 URL=$1
-PROJET_NAME=$(echo $URL | awk -F'/' '{split($NF, a, "-"); split(a[7], b, "."); print b[1]}')
+ORG_NAME=$(dirname $URL | awk -F'/' '{print $NF}')
+BASE_NAME=$(basename -s .git $URL)
 
+echo "Organization: $ORG_NAME"
+echo "Project: $BASE_NAME"
 
-if [ -z "$PROJET_NAME" ]; then
-    echo "Error: unable to determine project name, simple clone active."
-    git clone "$1" .
+if [[ $ORG_NAME == *"git@github.com:EpitechPromo"* ]]; then
+    PROJET_NAME=$(echo $BASE_NAME | awk -F'/' '{split($NF, a, "-"); split(a[7], b, "."); print b[1]}')
+    echo "Epitech repository detected: $PROJET_NAME"
+    git clone "$1" "$PROJET_NAME"
+    echo "Clone done."
+else
+    echo "Classic repository detected: $BASE_NAME"
+    git clone "$1" "$BASE_NAME"
+    echo "Clone done."
 fi
-
-git clone "$1" "$PROJET_NAME"
